@@ -29,6 +29,22 @@ db.posts.belongsTo(db.users, {
     foreignKey: 'user_id',
     as: 'user'
 })
+db.users.hasMany(db.likes, {
+    foreignKey: 'user_id',
+    as: 'like'
+})
+db.likes.belongsTo(db.users, {
+    foreignKey: 'user_id',
+    as: 'user'
+})
+db.users.hasMany(db.views, {
+    foreignKey: 'user_id',
+    as: 'view'
+})
+db.views.belongsTo(db.users, {
+    foreignKey: 'user_id',
+    as: 'user'
+})
 
 db.posts.hasMany(db.comments, {
     foreignKey: 'post_id',
